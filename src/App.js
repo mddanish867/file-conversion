@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
 
+import {BrowserRouter as Router,Route,Switch, Routes } from 'react-router-dom';
+import './App.css';
+import Navigation from './Components/Navigation';
+import UploadFile from './Components/UploadFile';
+import ConvertFile from './Components/ConvertFile';
+import Home from './Components/Home';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <Router>
+    <div>
+      <Navigation/>
+      <Routes>
+      <Route path='/' exact Component={Home}></Route>
+        <Route path='/upload' exact Component={UploadFile}></Route>
+        <Route path='/convert' exact Component={ConvertFile}></Route>
+      </Routes>
+        
+      
     </div>
+   </Router>
   );
 }
 
